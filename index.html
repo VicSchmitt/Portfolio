@@ -207,6 +207,13 @@
       }
     ];
 
+    const researchData = [
+      {
+        title: "BLXtract (Decryption tool)",
+        link: "https://github.com/VicSchmitt/BLXtract-Python"
+      }
+    ];
+
     function ProjectCard({ project }) {
       return (
         <div className="card">
@@ -238,6 +245,15 @@
             <h2 className="projects-title">Michigan Daily Games Section Projects</h2>
             <div className="project-cards">
               {michiganDailyGamesData.map((proj, i) => (
+                <ProjectCard project={proj} key={i} />
+              ))}
+            </div>
+          </section>
+          <br/>
+          <section>
+            <h2 className="projects-title">Research Projects</h2>
+            <div className="project-cards">
+              {researchData.map((proj, i) => (
                 <ProjectCard project={proj} key={i} />
               ))}
             </div>
