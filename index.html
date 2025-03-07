@@ -2,14 +2,20 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Simplified React Portfolio</title>
+  <title>The Portfolio of Victor Schmitt</title>
+  
+  <!-- Google Fonts for modern look -->
   <link rel="preconnect" href="https://fonts.gstatic.com" />
   <link 
     href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" 
-    rel="stylesheet"
+    rel="stylesheet" 
   />
+
+  <!-- Font Awesome for icons (optional) -->
+  <script src="https://kit.fontawesome.com/your-font-awesome-key.js" crossorigin="anonymous"></script>
+  
   <style>
-    /* Simple reset & styling */
+    /* === Global Styles === */
     * {
       margin: 0;
       padding: 0;
@@ -17,146 +23,215 @@
     }
     body {
       font-family: 'Open Sans', sans-serif;
-      background-color: #fafafa;
+      background-color: #f5f7fa;
       color: #333;
-      padding: 1rem;
+      transition: background-color 0.3s, color 0.3s;
     }
+    
+    /* Dark Mode */
+    body.dark-mode {
+      background-color: #1e1e1e;
+      color: #ddd;
+    }
+    
+    /* === Header / Navbar === */
     header {
-      margin-bottom: 2rem;
-      text-align: center;
-    }
-    main {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    footer {
-      margin-top: 2rem;
-      text-align: center;
-      font-size: 0.85rem;
-      color: #666;
+      position: fixed; /* Sticks to top */
+      width: 100%;
+      top: 0;
+      left: 0;
+      background: linear-gradient(135deg, #85FFBD 0%, #FFFB7D 100%);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+      z-index: 1000;
     }
 
-    /* Cards Grid */
-    .section {
-      margin-bottom: 2rem;
+    header h1 {
+      font-size: 1.8rem;
+      color: #2d2d2d;
     }
-    .section-title {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-      text-align: center;
-    }
-    .cards-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+
+    .navbar-right {
+      display: flex;
+      align-items: center;
       gap: 1rem;
     }
+
+    .toggle-btn {
+      cursor: pointer;
+      background: none;
+      border: none;
+      font-size: 1.2rem;
+    }
+
+    /* === Main Content Wrapper === */
+    main {
+      max-width: 900px;
+      margin: 6rem auto 2rem; /* top margin accounts for fixed header */
+      padding: 2rem;
+    }
+
+    /* === Projects Section === */
+    .projects-title {
+      margin-bottom: 2rem;
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .project-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.5rem;
+    }
+
     .card {
-      background: #fff;
-      border: 1px solid #ddd;
-      border-radius: 4px;
+      background-color: #fff;
+      border-radius: 0.5rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.06);
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    body.dark-mode .card {
+      background-color: #2f2f2f;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .card-header {
+      background-color: #fafafa;
       padding: 1rem;
-    }
-    .card-title {
-      font-size: 1.1rem;
-      margin-bottom: 0.5rem;
-    }
-    .card-link {
-      color: #0d6efd;
-      text-decoration: none;
       font-weight: bold;
     }
-    .card-link:hover {
-      text-decoration: underline;
+    body.dark-mode .card-header {
+      background-color: #3f3f3f;
+    }
+
+    .card-content {
+      flex: 1;
+      padding: 1rem;
+    }
+
+    .card-content a {
+      color: #0d6efd;
+      text-decoration: none;
+      font-weight: 700;
+    }
+    body.dark-mode .card-content a {
+      color: #64a9ff;
+    }
+
+    .card-content a:hover {
+      color: #084298;
+    }
+    
+    /* === Footer === */
+    footer {
+      text-align: center;
+      margin: 2rem 0;
+      font-size: 0.9rem;
+      color: #777;
+    }
+    body.dark-mode footer {
+      color: #aaa;
+    }
+
+    /* Responsive text resizing (optional) */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 1.4rem;
+      }
+      .projects-title {
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
 <body>
+  <!-- === NAVBAR / HEADER === -->
   <header>
-    <h1>My Simplified React Portfolio</h1>
+    <h1>Victor Schmitt - Video Game Portfolio</h1>
+    <div class="navbar-right">
+      <button class="toggle-btn" id="themeToggler" aria-label="Toggle Dark Mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
   </header>
 
-  <main id="root"></main>
+  <!-- === MAIN CONTENT === -->
+  <main id="root">
+    <!-- React will render here -->
+  </main>
 
   <footer>
-    &copy; 2023 Example. All rights reserved.
+    &copy; 2023 Victor Schmitt. All rights reserved.
   </footer>
 
-  <!-- React & ReactDOM via CDN -->
-  <script
-    src="https://unpkg.com/react@17/umd/react.development.js"
-    crossorigin
-  ></script>
-  <script
-    src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
-    crossorigin
-  ></script>
+  <!-- === React and ReactDOM via CDN === -->
+  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+  <!-- Babel to transpile JSX in the browser (for quick demos) -->
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
 
-  <!-- Babel (for quick in-browser JSX compilation) -->
-  <script
-    src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"
-    crossorigin
-  ></script>
-
-  <!-- Our React Code -->
-  <script type="text/babel" data-presets="env,react">
-    /*
-      We'll keep two separate data arrays to show multiple sections.
-      You can expand these as needed.
-    */
-    const mainProjects = [
-      { title: "Link is Thinking with Portals! (Zelda NES Unity Remaster)", link: "https://vicschmitt.itch.io/link-is-thinking-with-portals" },
-      { title: "Card Shark (Rapid Prototype Project built in 2 weeks)", link: "https://vicschmitt.itch.io/card-shark" },
-      { title: "Pick it up! (Final project)", link: "https://evmarcus.itch.io/pick-it-up" },
+  <script type="text/babel">
+    const projectsData = [
+      {
+        title: "Link is Thinking with Portals! (Zelda NES Unity Remaster)",
+        link: "https://vicschmitt.itch.io/link-is-thinking-with-portals"
+      },
+      {
+        title: "Card Shark (Rapid Prototype Project built in 2 weeks)",
+        link: "https://vicschmitt.itch.io/card-shark"
+      },
+      {
+        title: "Pick it up! (Final project)",
+        link: "https://evmarcus.itch.io/pick-it-up"
+      }
     ];
 
-    const sideProjects = [
-      { title: "Crossword Engine (Full-sized/Mini)", link: "https://example.com/1" },
-      { title: "Original Game: 'Links'", link: "https://games.michigandaily.com/links/archives" },
-    ];
-
-    // Card component
-    function Card({ project }) {
+    function ProjectCard({ project }) {
       return (
         <div className="card">
-          <div className="card-title">{project.title}</div>
-          <a
-            className="card-link"
-            href={project.link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            View Project
-          </a>
-        </div>
-      );
-    }
-
-    // Section component (has a title and a list of cards)
-    function Section({ title, items }) {
-      return (
-        <div className="section">
-          <h2 className="section-title">{title}</h2>
-          <div className="cards-container">
-            {items.map((proj, idx) => (
-              <Card key={idx} project={proj} />
-            ))}
+          <div className="card-header">{project.title}</div>
+          <div className="card-content">
+            <p>
+              <a href={project.link} target="_blank" rel="noopener noreferrer">
+                View Project
+              </a>
+            </p>
           </div>
         </div>
       );
     }
 
-    // Our main App component
-    function App() {
+    function ProjectList() {
       return (
-        <>
-          <Section title="Game Development Projects (EECS 494)" items={mainProjects} />
-          <Section title="Michigan Daily Games Section Projects" items={sideProjects} />
-        </>
+        <section>
+          <h2 className="projects-title">Projects</h2>
+          <div className="project-cards">
+            {projectsData.map((proj, i) => (
+              <ProjectCard project={proj} key={i} />
+            ))}
+          </div>
+        </section>
       );
     }
 
-    // Mount the App to the #root div
-    ReactDOM.render(<App />, document.getElementById('root'));
+    // Render the ProjectList in the root
+    ReactDOM.render(<ProjectList />, document.getElementById('root'));
+
+    // Dark mode toggler
+    const themeToggler = document.getElementById('themeToggler');
+    themeToggler.addEventListener('click', function() {
+      document.body.classList.toggle('dark-mode');
+    });
   </script>
 </body>
 </html>
