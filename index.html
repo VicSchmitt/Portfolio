@@ -196,6 +196,17 @@
       }
     ];
 
+    const michiganDailyGamesData = [
+      {
+        title: "Crossword Engine (Full-sized/Mini)",
+        link: "https://games.michigandaily.com/crosswords/archives"
+      },
+      {
+        title: "Original Game: 'Links'",
+        link: "https://games.michigandaily.com/links/archives"
+      }
+    ];
+
     function ProjectCard({ project }) {
       return (
         <div className="card">
@@ -214,9 +225,17 @@
     function ProjectList() {
       return (
         <section>
-          <h2 className="projects-title">Projects</h2>
+          <h2 className="projects-title">Game Development Projects (EECS 494)</h2>
           <div className="project-cards">
             {projectsData.map((proj, i) => (
+              <ProjectCard project={proj} key={i} />
+            ))}
+          </div>
+        </section>
+        <section>
+          <h2 className="projects-title">Michigan Daily Games Section Projects</h2>
+          <div className="project-cards">
+            {michiganDailyGamesData.map((proj, i) => (
               <ProjectCard project={proj} key={i} />
             ))}
           </div>
