@@ -172,13 +172,26 @@
   </footer>
 
   <!-- === React & ReactDOM via CDN === -->
-  <script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
-  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
-  <!-- Babel to transpile JSX in the browser (for quick demos) -->
-  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+  <script 
+    src="https://unpkg.com/react@17/umd/react.development.js"
+    crossorigin
+  ></script>
+  <script 
+    src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"
+    crossorigin
+  ></script>
 
-  <!-- === Our React Code (JSX) === -->
-  <script type="text/babel">
+  <!-- Babel to transpile JSX in the browser (for quick demos) -->
+  <script 
+    src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js" 
+    crossorigin
+  ></script>
+
+  <!-- === Our React Code (JSX) with Babel presets === -->
+  <script 
+    type="text/babel" 
+    data-presets="env,react"
+  >
     // Data arrays
     const projectsData = [
       {
