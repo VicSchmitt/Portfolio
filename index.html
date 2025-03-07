@@ -224,22 +224,24 @@
 
     function ProjectList() {
       return (
-        <section>
-          <h2 className="projects-title">Game Development Projects (EECS 494)</h2>
-          <div className="project-cards">
-            {projectsData.map((proj, i) => (
-              <ProjectCard project={proj} key={i} />
-            ))}
-          </div>
-        </section>
-        <section>
-          <h2 className="projects-title">Michigan Daily Games Section Projects</h2>
-          <div className="project-cards">
-            {michiganDailyGamesData.map((proj, i) => (
-              <ProjectCard project={proj} key={i} />
-            ))}
-          </div>
-        </section>
+        <div>
+          <section>
+            <h2 className="projects-title">Game Development Projects (EECS 494)</h2>
+            <div className="project-cards">
+              {projectsData.map((proj, i) => (
+                <ProjectCard project={proj} key={i} />
+              ))}
+            </div>
+          </section>
+          <section>
+            <h2 className="projects-title">Michigan Daily Games Section Projects</h2>
+            <div className="project-cards">
+              {michiganDailyGamesData.map((proj, i) => (
+                <ProjectCard project={proj} key={i} />
+              ))}
+            </div>
+          </section>
+        </div>
       );
     }
 
